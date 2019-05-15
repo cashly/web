@@ -9,10 +9,13 @@
     "@types/react-dom": "16.8.4",
     "bulma": "^0.7.4",
     "cashly-core": "^1.0.0",
+    "date-fns": "^1.30.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
+    "redux": "^4.0.1",
     "tslint": "^5.16.0",
     "typescript": "3.4.5",
     "victory": "^32.2.3"
