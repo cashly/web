@@ -1,4 +1,5 @@
 import React from 'react';
+import './Navbar.scss';
 
 export const Navbar: React.FC = () => {
   return (
@@ -8,9 +9,9 @@ export const Navbar: React.FC = () => {
             Cashly
           </a>
           <a role='button' className='navbar-burger' aria-label='menu' aria-expanded='false'>
-            <span aria-hidden='true'/>
-            <span aria-hidden='true'/>
-            <span aria-hidden='true'/>
+            <span aria-hidden='true' />
+            <span aria-hidden='true' />
+            <span aria-hidden='true' />
           </a>
         </div>
       </nav>

@@ -2,18 +2,18 @@ import { SimulationResult } from 'cashly-core';
 import React from 'react';
 import { VictoryChart, VictoryLine } from 'victory';
 
-export interface IncomeGraphProp {
-  income: SimulationResult[];
+export interface ExpensesLineGraphProp {
+  expenses: SimulationResult[];
 }
 
-export const IncomeGraph: React.FC<IncomeGraphProp> = (props) => {
+export const ExpensesLineGraph: React.FC<ExpensesLineGraphProp> = (props) => {
   return (
       <VictoryChart>
         <VictoryLine
-            name={'Monthly Income'}
-            data={props.income}
+            name={'Expenses'}
+            data={props.expenses}
             x={'startDate'}
-            y={'income'}
+            y={'expenses'}
         />
       </VictoryChart>
   );

@@ -1,18 +1,21 @@
-import { SimulationResult } from 'cashly-core';
+import { SimulationOptions, SimulationResult } from 'cashly-core';
 import React from 'react';
-import './IncomeTable.scss';
+import './SimulationResultTable.scss';
 
 export interface IncomeTableProps {
   income: SimulationResult[];
+  options: SimulationOptions;
 }
 
-export const IncomeTable: React.FC<IncomeTableProps> = (props) => {
+export const SimulationResultTable: React.FC<IncomeTableProps> = (props) => {
   const rows = props.income.map((result) => {
     return (
         <tr key={result.startDate.toDateString()}>
           <td>{result.startDate.toDateString()}</td>
           <td>{result.endDate.toDateString()}</td>
-          <td>${result.income.toLocaleString()}</td>
+          <td>${(result.income * (1 - props.options.incomeTaxRate)).toLocaleString()}</td>
+          <td>${result.expenses.toLocaleString()}</td>
+          <td>${result.netWorth.toLocaleString()}</td>
         </tr>
     );
   });
@@ -27,7 +30,9 @@ export const IncomeTable: React.FC<IncomeTableProps> = (props) => {
         <tr>
           <th>Start Date</th>
           <th>End Date</th>
-          <th>Income</th>
+          <th>Income (post-tax)</th>
+          <th>Expenses</th>
+          <th>Net Worth</th>
         </tr>
         </thead>
         <tbody>
@@ -37,6 +42,8 @@ export const IncomeTable: React.FC<IncomeTableProps> = (props) => {
         <td>{sum.startDate.toDateString()}</td>
         <td>{sum.endDate.toDateString()}</td>
         <td>${sum.income.toLocaleString()}</td>
+        <td>${sum.expenses.toLocaleString()}</td>
+        <td />
         </tfoot>
       </table>
   );
